@@ -1,0 +1,28 @@
+# Extra dependencies not (fully) managed by Go
+
+## GoCV
+
+GoCV depends on OpenCV, which is implemented in C/C++. This means `cgo` and
+some custom installation steps.
+
+See the GoCV [Getting Started](https://gocv.io/getting-started/) Guide for
+details.
+
+### Extra packages for GoCV
+
+I use KDE, probably that's the reason some Gnome packages were missing after
+the GoCV [quick install](https://gocv.io/getting-started/linux/#quick-install).
+
+```
+$ go run ./cmd/faceblur/main.go 0 ./data/haarcascade_frontalface_default.xml
+Gtk-Message: 15:09:44.833: Failed to load module "appmenu-gtk-module"
+
+(main:35991): Gtk-WARNING **: 15:09:44.851: Unable to locate theme engine in module_path: "adwaita",
+```
+
+This fixed it for me:
+
+```    
+# apt install gnome-themes-standard appmenu-gtk2-module appmenu-gtk3-module
+```
+

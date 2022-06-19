@@ -1,3 +1,9 @@
+# GoLand / IDEA
+.idea/
+
+# direnv -- https://direnv.net/
+.envrc
+
 # Binaries for programs and plugins
 *.exe
 *.exe~
